@@ -1,0 +1,8 @@
+##Will need to downloaded cutadapt (v1.13) first
+
+##Use cutadapt on all files matching the sample names in the "sample_names" file
+for f in `cat sample_names`; do cutadapt -g GGHAARGGHGGHATHGGNAARTC -G GGCATNGCRAANCCVCCRCANAC --discard-untrimmed --max-n=1 --match-read-wildcards -e 0 -m 223 -M 223 -o "$f"_R1_trimmed.fastq -p "$f"_R2_trimmed.fastq "$f"_R1_001.fastq "$f"_R2_001.fastq;done
+
+##move all files we are not using anymore into a separate folder (you could also delete if you wanted to)
+mkdir not_using
+mv !(*trimmed.fastq) not_using

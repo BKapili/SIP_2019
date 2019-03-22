@@ -1,0 +1,10 @@
+###Insert nifH ASVs into k48 pruned using SEPP
+#But must fix alignment and input tree to remove '=' characters, and adjust alpha line in RAxML_info file
+
+#-t is the input tree
+#-r is the RAxML info file
+#-a is the backbone alignment
+#-f is the fasta file containing sequence fragments (in this case nifH ASVs)
+run_sepp.py -t RAxML_bipartitionsBranchLabels.nifH_fulls_RAxML_20180829 -r RAxML_info.nifH_fulls_RAxML_20180829  -a nifH_fulls_mafft_20180829 -f WFSIP_nifH_pruned_20180816.fasta
+
+~/Documents/STANFORD/Packages/sepp/tools/bundled/Darwin/guppy tog --xml output_placement.json
